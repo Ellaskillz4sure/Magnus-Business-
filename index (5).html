@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magnus — Trusted Source for Wealth Creation</title>
+  <meta name="description" content="Magnus is a value‑driven digital retail ecosystem that combines product creation, reselling and skills training with high‑income plans and automation to help you build lasting wealth.">
+  <meta name="theme-color" content="#0B0B0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Magnus — Trusted Source for Wealth Creation">
+  <meta property="og:description" content="Join Magnus: product creation, reselling, skills training, and three income plans — Lite, Pro, and Business — with bonuses and automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/magnus-hero.jpg">
+  <style>
+    :root{
+      --orange-1:#F97316;
+      --orange-2:#F59E0B;
+      --obsidian:#0B0B0F;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--obsidian); color:#fff; font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; line-height:1.55}
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
+    .container{width:100%; max-width:1200px; margin:0 auto; padding:0 clamp(14px, 3vw, 24px)}
+    .btn{display:inline-block; padding:12px 20px; border-radius:14px; font-weight:600; transition:.25s ease; border:1px solid transparent}
+    .btn-primary{background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); box-shadow:0 0 30px rgba(249,115,22,.35)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{border-color:#2a2a33; background:#121218a8; backdrop-filter:blur(6px)}
+    header{position:sticky; top:0; z-index:50; background:rgba(11,11,15,.7); backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid #1f1f25}
+    /* Clean Nav */
+    .nav{display:flex; align-items:center; gap:10px; padding:10px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+    .brand-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); box-shadow:0 6px 22px rgba(249,115,22,.35)}
+    .brand small{display:block; font-size:10px; opacity:.85}
+    .spacer{flex:1}
+    .nav-links{display:flex; gap:14px}
+    .nav-links a{font-size:14px; opacity:.9; padding:8px 10px; border-radius:10px}
+    .nav-links a:hover{background:#17171d}
+    .cta-row{display:flex; align-items:center; gap:10px}
+    .burger{display:none; border:1px solid #2a2a33; background:#14141a; padding:10px; border-radius:12px}
+    /* Mobile Sheet */
+    .sheet{position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; z-index:60}
+    .sheet-panel{position:absolute; right:0; top:0; bottom:0; width:min(88vw, 380px); background:#111118; border-left:1px solid #2a2a33; padding:20px; overflow:auto}
+    .sheet a{display:block; padding:12px 10px; border-radius:10px; margin:4px 0; background:#16161d}
+    .sheet .close{position:absolute; top:10px; right:10px}
+    @media (max-width: 900px){
+      .nav-links, .cta-desktop{display:none}
+      .burger{display:inline-flex}
+    }
+
+    /* HERO */
+    .hero{position:relative; padding: clamp(48px, 8vw, 80px) 0 60px; overflow:hidden;
+          background:
+          radial-gradient(40% 60% at 20% 20%, rgba(249,115,22,.25), transparent 60%),
+          radial-gradient(30% 40% at 80% 10%, rgba(245,158,11,.2), transparent 70%),
+          linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.6));}
+    .hero-grid{display:grid; grid-template-columns: 1.2fr 1fr; align-items:center; gap:clamp(16px, 4vw, 40px)}
+    .hero h1{font-size: clamp(32px, 6vw, 56px); line-height:1.05; margin:8px 0 10px}
+    .hero p{color:#d6d6df; font-size: clamp(15px, 2.2vw, 18px)}
+    .media-card{border-radius:22px; overflow:hidden; background:#141419; border:1px solid #262632; box-shadow: 0 10px 50px rgba(0,0,0,.5)}
+    .media-card img{aspect-ratio: 4/3; object-fit:cover}
+    @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .media-card{order:-1} }
+
+    /* STATS */
+    .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:16px}
+    .stat{padding:14px 16px; background:linear-gradient(180deg, rgba(255,153,51,.06), rgba(255,153,51,.03)); border:1px solid #2a2a33; border-radius:14px}
+    .stat h3{margin:0; font-size:clamp(18px, 3.6vw, 24px); background:linear-gradient(135deg,var(--orange-1),var(--orange-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .stat p{margin:6px 0 0; color:#c7c7d4; font-size:12px}
+    @media (max-width:900px){ .stats{grid-template-columns:1fr 1fr} }
+
+    /* SECTIONS */
+    section{padding: clamp(44px, 7vw, 64px) 0}
+    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:20px}
+    .section-head h2{margin:0; font-size: clamp(22px, 4.6vw, 36px)}
+    .section-desc{max-width:760px; color:#d6d6df}
+
+    /* CARDS */
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .card{padding:16px; border-radius:16px; background:linear-gradient(180deg, rgba(18,18,24,.9), rgba(18,18,24,.6)); border:1px solid #2a2a33}
+    .card h3{margin:6px 0 8px; font-size:18px}
+    .card p{margin:0; color:#cfd0da}
+    .icon{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); box-shadow:0 6px 20px rgba(249,115,22,.35)}
+    @media (max-width:900px){ .cards{grid-template-columns:1fr} }
+
+    /* PLANS */
+    .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .plan{border:1px solid #2a2a33; border-radius:18px; background:linear-gradient(180deg, rgba(18,18,24,.95), rgba(18,18,24,.7)); padding:18px; position:relative}
+    .plan .tag{position:absolute; top:12px; right:12px; font-size:12px; padding:4px 8px; border-radius:999px; background:rgba(249,115,22,.15); border:1px solid rgba(249,115,22,.35)}
+    .plan h3{margin:6px 0 8px; font-size:22px}
+    .plan ul{list-style:none; margin:12px 0 0; padding:0; color:#d6d6df}
+    .plan ul li{padding:8px 0; border-bottom:1px dashed #2a2a33}
+    .plan ul li:last-child{border-bottom:0}
+    .plan .cta{margin-top:14px}
+    @media (max-width:900px){ .plans{grid-template-columns:1fr} }
+
+    /* TIMELINE */
+    .timeline{position:relative; margin:10px 0 0; padding-left:20px}
+    .timeline::before{content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:linear-gradient(var(--orange-2), transparent)}
+    .milestone{position:relative; margin:8px 0 16px; padding-left:16px}
+    .milestone::before{content:""; position:absolute; left:-2px; top:6px; width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); box-shadow:0 0 0 3px rgba(249,115,22,.2)}
+
+    /* FAQ */
+    .faq{max-width:940px}
+    .faq-item{border:1px solid #2a2a33; border-radius:14px; padding:14px 16px; margin:10px 0; background:#16161c}
+    .faq-q{display:flex; align-items:center; justify-content:space-between; gap:10px; cursor:pointer}
+    .faq-a{display:none; color:#cfd0da; padding-top:8px}
+
+    /* FOOTER */
+    footer{padding:40px 0 60px; border-top:1px solid #262632; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.35))}
+    .foot-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px}
+    .subtle{color:#bdbdcb}
+    @media (max-width:900px){ .foot-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Magnus Home">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#101010"></path>
+          </svg>
+        </div>
+        <div>Magnus<small>Trusted wealth creation</small></div>
+      </a>
+      <div class="spacer"></div>
+      <nav class="nav-links" aria-label="Desktop">
+        <a href="#how">How it works</a>
+        <a href="#plans">Plans</a>
+        <a href="#payfac">PayFac</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="cta-row cta-desktop">
+        <a class="btn btn-primary" href="#cta">Join Now</a>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="openSheet()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Sheet Menu -->
+  <div id="sheet" class="sheet" aria-hidden="true" onclick="closeSheet(event)">
+    <div class="sheet-panel" role="dialog" aria-label="Menu">
+      <button class="close btn btn-ghost" onclick="closeSheet(event)">Close</button>
+      <a href="#how" onclick="closeSheet()">How it works</a>
+      <a href="#plans" onclick="closeSheet()">Plans</a>
+      <a href="#payfac" onclick="closeSheet()">PayFac</a>
+      <a href="#jobs" onclick="closeSheet()">Product PR Job</a>
+      <a href="#faq" onclick="closeSheet()">FAQ</a>
+      <a class="btn btn-primary" href="#cta" style="margin-top:10px" onclick="closeSheet()">Join Now</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span style="display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:rgba(249,115,22,.15); color:#ffdcb3; border:1px solid rgba(249,115,22,.25); font-size:12px">Value‑driven digital retail • Automation first</span>
+        <h1>Build lasting wealth with <span style="background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Magnus</span></h1>
+        <p>More than an affiliate platform — Magnus blends product creation, reselling and skills training with three income plans and milestone rewards, powered by smart automation.</p>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn btn-primary" href="#plans">See Plans</a>
+          <a class="btn btn-ghost" href="#how">How it Works</a>
+        </div>
+        <div class="stats" aria-label="Highlights">
+          <div class="stat"><h3>3</h3><p>Plans: Lite, Pro, Business</p></div>
+          <div class="stat"><h3>₦2,280</h3><p>Per PayFac approval</p></div>
+          <div class="stat"><h3>₦985</h3><p>Every 2 mins — PR job</p></div>
+          <div class="stat"><h3>₦10M</h3><p>Top milestone + trip</p></div>
+        </div>
+      </div>
+      <div class="media-card">
+        <img src="assets/magnus-hero.jpg" alt="Magnus orange glow — trusted source for wealth creation">
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how">
+    <div class="container">
+      <div class="section-head">
+        <h2>How Magnus Works</h2>
+        <p class="section-desc">Magnus combines <strong>product creation</strong>, <strong>reselling</strong>, and <strong>skills training</strong> so users develop strong habits, daily income and long‑term wealth.</p>
+      </div>
+      <div class="cards" style="margin-top:12px">
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12l7-9 7 9-7 9-7-9z" fill="#101010"/></svg></div>
+          <h3>Create & Resell</h3>
+          <p>Launch products or resell curated offers with transparent payouts and tools that scale.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v6H4zM4 14h16v6H4z" fill="#101010"/></svg></div>
+          <h3>Skills & Training</h3>
+          <p>Practical training to sharpen thinking, build habits, and turn actions into daily income.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l4 8h8l-6 5 2 9-8-5-8 5 2-9-6-5h8z" fill="#101010"/></svg></div>
+          <h3>Automation‑Powered</h3>
+          <p>Smart systems help you focus on results while Magnus handles repetitive tasks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section id="plans">
+    <div class="container">
+      <div class="section-head">
+        <h2>Choose Your Plan</h2>
+        <p class="section-desc">Start simple or go straight for high‑income operations. No referrals required for Pro and Business.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <span class="tag">Starter</span>
+          <h3>Magnus Lite</h3>
+          <p class="subtle">Networking‑focused with limited earning activities.</p>
+          <ul>
+            <li>Access to Product PR job</li>
+            <li>Basic training modules</li>
+            <li>Community & support</li>
+            <li>Entry‑level tools</li>
+          </ul>
+          <div class="cta"><a class="btn btn-ghost" href="#cta">Begin with Lite</a></div>
+        </div>
+        <div class="plan" style="border-color:#634015; box-shadow:0 10px 40px rgba(249,115,22,.15)">
+          <span class="tag">Popular</span>
+          <h3>Magnus Pro</h3>
+          <p class="subtle">High‑income plan — generate millions without referrals.</p>
+          <ul>
+            <li>Higher payouts on Product PR</li>
+            <li>Advanced training & playbooks</li>
+            <li>Priority support</li>
+            <li>Automation & analytics tools</li>
+          </ul>
+          <div class="cta"><a class="btn btn-primary" href="#cta">Go Pro</a></div>
+        </div>
+        <div class="plan">
+          <span class="tag">Maximum Earning</span>
+          <h3>Magnus Business</h3>
+          <p class="subtle">Top‑tier income with the highest job pay and scaling perks.</p>
+          <ul>
+            <li>Highest Product PR pay</li>
+            <li>Business‑grade toolset</li>
+            <li>Dedicated success manager</li>
+            <li>Exclusive campaigns & bonuses</li>
+          </ul>
+          <div class="cta"><a class="btn btn-ghost" href="#cta">Start Business</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PayFacs -->
+  <section id="payfac">
+    <div class="container">
+      <div class="section-head"><h2>Payment Facilitators (PayFacs)</h2></div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18v8H3zM3 4h18v6H3z" fill="#101010"/></svg></div>
+          <h3>Review & Approve</h3>
+          <p>Trusted partners who verify user details with a simple, streamlined flow.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-8" stroke="#101010" stroke-width="2"/></svg></div>
+          <h3>Earn per Approval</h3>
+          <p>Commission up to <strong>₦2,280</strong> per approval plus indirect bonuses.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 10h16v10H4zM7 4h10v4H7z" fill="#101010"/></svg></div>
+          <h3>Sub‑Admin Dashboard</h3>
+          <p>Dedicated tools for PayFacs with real‑time status and transparent stats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product PR Job -->
+  <section id="jobs">
+    <div class="container">
+      <div class="section-head"><h2>Product PR Data Entry Job</h2></div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" fill="#101010"/></svg></div>
+          <h3>Simple & Accessible</h3>
+          <p>Available to all plans — pay scales with your plan (highest for Business).</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h8l2 3 2-6 2 3h4" stroke="#101010" stroke-width="2"/></svg></div>
+          <h3>Fast Payouts</h3>
+          <p>Earn up to <strong>₦985</strong> every 2 minutes with clear rules and tracking.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4l8 8-8 8-8-8 8-8z" fill="#101010"/></svg></div>
+          <h3>Automation Support</h3>
+          <p>Smart tools reduce repetitive steps so you can focus on results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sales Achievements -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-head"><h2>Sales Achievements & Milestone Rewards</h2></div>
+      <div class="timeline">
+        <div class="milestone"><strong>3 sales:</strong> ₦5,800 bonus</div>
+        <div class="milestone"><strong>...more goals:</strong> Increasing rewards at each stage</div>
+        <div class="milestone"><strong>All goals completed:</strong> Up to ₦10,000,000 + Rwanda trip</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-head"><h2>What People Say</h2></div>
+      <div class="cards">
+        <div class="card"><h3>“Clear path to income.”</h3><p class="subtle">The training and automation helped me focus on consistent action.</p></div>
+        <div class="card"><h3>“Real value, not hype.”</h3><p class="subtle">I like the structure — Lite was enough to get started, then I moved to Pro.</p></div>
+        <div class="card"><h3>“Bonuses are real.”</h3><p class="subtle">Milestone rewards kept me motivated. Payouts were transparent.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container faq">
+      <div class="section-head"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><strong>Is Magnus only an affiliate platform?</strong><span>+</span></div>
+        <div class="faq-a">No. Magnus is a value‑driven digital retail ecosystem that includes product creation, reselling and skills training.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><strong>Do Pro & Business require referrals?</strong><span>+</span></div>
+        <div class="faq-a">No. Pro & Business are high‑income plans that can generate earnings without referrals or networking.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><strong>How much can PayFacs earn?</strong><span>+</span></div>
+        <div class="faq-a">PayFacs earn commissions up to ₦2,280 per approved user, plus indirect bonuses.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><strong>What is the Product PR job?</strong><span>+</span></div>
+        <div class="faq-a">A simple, automation‑supported data entry task that pays up to ₦985 every 2 minutes depending on your plan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><strong>Are there milestone rewards?</strong><span>+</span></div>
+        <div class="faq-a">Yes. Bonuses start from ₦5,800 for 3 sales, scaling up to ₦10,000,000 and a Rwanda trip when you complete all goals.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:24px 24px">
+        <div>
+          <h3 style="margin:0 0 6px">Ready to start?</h3>
+          <p class="subtle" style="margin:0">Pick a plan, access the dashboard, and take your first earning action today.</p>
+        </div>
+        <a class="btn btn-primary" href="#plans">Create Account</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <div class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#101010"></path>
+            </svg>
+          </div>
+          <div style="font-weight:800">Magnus</div>
+        </div>
+        <p class="subtle">© <span id="yr"></span> Magnus Platform. All rights reserved.</p>
+      </div>
+      <div>
+        <strong>Pages</strong>
+        <div class="subtle" style="margin-top:8px">
+          <div><a href="#how">How it works</a></div>
+          <div><a href="#plans">Plans</a></div>
+          <div><a href="#faq">FAQ</a></div>
+        </div>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <div class="subtle" style="margin-top:8px">
+          <div>Email: hello@magnus.example</div>
+          <div>WhatsApp: +234 000 000 0000</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile sheet controls
+    function openSheet(){ document.getElementById('sheet').style.display='block'; document.getElementById('sheet').setAttribute('aria-hidden','false'); }
+    function closeSheet(e){ if(e && e.target && e.target.id !== 'sheet' && e.target.closest('.sheet-panel')) { return; } document.getElementById('sheet').style.display='none'; document.getElementById('sheet').setAttribute('aria-hidden','true'); }
+    // FAQ toggle
+    function toggleFaq(el){ const a = el.nextElementSibling; a.style.display = a.style.display==='block' ? 'none' : 'block'; }
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
