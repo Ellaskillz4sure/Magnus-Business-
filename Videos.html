@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magnus Videos</title>
+  <meta name="description" content="Watch 10 short videos explaining Magnus plans, automation, Product PR jobs, and milestone rewards.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --orange-1:#F97316;
+  --orange-2:#F59E0B;
+  --obsidian:#0B0B0F;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--obsidian); color:#fff; font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; line-height:1.55}
+img,video{max-width:100%; display:block; border:0}
+a{color:inherit; text-decoration:none}
+.container{width:100%; max-width:1200px; margin:0 auto; padding:0 clamp(14px, 3vw, 24px)}
+/* Navbar (same as v2) */
+header{position:sticky; top:0; z-index:50; background:rgba(11,11,15,.7); backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid #1f1f25}
+.nav{display:flex; align-items:center; gap:10px; padding:10px 0}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+.brand-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); box-shadow:0 6px 22px rgba(249,115,22,.35)}
+.brand small{display:block; font-size:10px; opacity:.85}
+.spacer{flex:1}
+.nav-links{display:flex; gap:14px}
+.nav-links a{font-size:14px; opacity:.9; padding:8px 10px; border-radius:10px}
+.nav-links a:hover{background:#17171d}
+.cta-row{display:flex; align-items:center; gap:10px}
+.burger{display:none; border:1px solid #2a2a33; background:#14141a; padding:10px; border-radius:12px}
+.sheet{position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; z-index:60}
+.sheet-panel{position:absolute; right:0; top:0; bottom:0; width:min(88vw, 380px); background:#111118; border-left:1px solid #2a2a33; padding:20px; overflow:auto}
+.sheet a{display:block; padding:12px 10px; border-radius:10px; margin:4px 0; background:#16161d}
+.sheet .close{position:absolute; top:10px; right:10px}
+@media (max-width: 900px){
+  .nav-links, .cta-desktop{display:none}
+  .burger{display:inline-flex}
+}
+
+/* Page */
+main{padding: clamp(36px, 6vw, 56px) 0}
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.card{border:1px solid #2a2a33; border-radius:16px; overflow:hidden; background:#141419; display:flex; flex-direction:column}
+.video-wrap{background:#0f0f14}
+figcaption{display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; padding:14px}
+figcaption h1{font-size:18px; margin:0; background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+figcaption p{margin:0; color:#cfd0da; font-size:14px}
+.btn{display:inline-block; padding:10px 16px; border-radius:12px; font-weight:600; border:1px solid transparent; background:linear-gradient(135deg, var(--orange-1), var(--orange-2)); box-shadow:0 0 24px rgba(249,115,22,.35)}
+@media (max-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .grid{grid-template-columns:1fr} }
+
+/* Footer (same as v2) */
+footer{padding:40px 0 60px; border-top:1px solid #262632; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.35))}
+.foot-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px}
+.subtle{color:#bdbdcb}
+@media (max-width:900px){ .foot-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+  <!-- Header (same as v2) -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Magnus Home">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#101010"></path>
+          </svg>
+        </div>
+        <div>Magnus<small>Trusted wealth creation</small></div>
+      </a>
+      <div class="spacer"></div>
+      <nav class="nav-links" aria-label="Desktop">
+        <a href="How_ it_Works.html">How it works</a>
+        <a href="index.html#plans">Plans</a>
+        <a href="index.html#payfac">PayFac</a>
+        <a href="index.html#jobs">Jobs</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="cta-row cta-desktop">
+        <a class="btn" href="index.html#cta">Join Now</a>
+      </div>
+      <button class="burger" aria-label="Open menu" onclick="openSheet()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Sheet Menu (same behavior) -->
+  <div id="sheet" class="sheet" aria-hidden="true" onclick="closeSheet(event)">
+    <div class="sheet-panel" role="dialog" aria-label="Menu">
+      <button class="close btn" onclick="closeSheet(event)">Close</button>
+      <a href="How_ it_Works.html" onclick="closeSheet()">How it works</a>
+      <a href="index.html#plans" onclick="closeSheet()">Plans</a>
+      <a href="index.html#payfac" onclick="closeSheet()">PayFac</a>
+      <a href="index.html#jobs" onclick="closeSheet()">Product PR Job</a>
+      <a href="index.html#faq" onclick="closeSheet()">FAQ</a>
+      <a class="btn" href="index.html#cta" style="margin-top:10px" onclick="closeSheet()">Join Now</a>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="grid">
+        
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Welcome to Magnus</h1>
+          <p>A quick overview of how Magnus helps you build lasting wealth.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Create Your First Product</h1>
+          <p>Step‑by‑step walkthrough for launching a simple offer.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Reselling Blueprint</h1>
+          <p>How to resell curated offers with transparent payouts.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Training Hub Tour</h1>
+          <p>See the lessons that sharpen your skills and habits.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Automation Tools</h1>
+          <p>Reduce repetitive work and focus on results.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Magnus Lite Guide</h1>
+          <p>Get started with networking‑focused activities.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Magnus Pro Deep Dive</h1>
+          <p>Scale without referrals using advanced playbooks.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Business Tier Power</h1>
+          <p>Unlock top‑tier earnings and exclusive perks.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Product PR Job Demo</h1>
+          <p>How the data entry job works (up to ₦985 / 2 min).</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      <figure class="card">
+        <div class="video-wrap">
+          <video controls preload="metadata" poster="assets/magnus-hero.jpg">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <h1>Milestones & Rewards</h1>
+          <p>Bonuses up to ₦10M + Rwanda trip for top achievers.</p>
+          <a class="btn" href="index.html#cta">Join Now</a>
+        </figcaption>
+      </figure>
+    
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (same as v2) -->
+  <footer id="contact">
+    <div class="container foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <div class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#101010"></path>
+            </svg>
+          </div>
+          <div style="font-weight:800">Magnus</div>
+        </div>
+        <p class="subtle">© <span id="yr"></span> Magnus Platform. All rights reserved.</p>
+      </div>
+      <div>
+        <strong>Pages</strong>
+        <div class="subtle" style="margin-top:8px">
+          <div><a href="How_ it_Works.html">How it works</a></div>
+          <div><a href="index.html#plans">Plans</a></div>
+          <div><a href="index.html#faq">FAQ</a></div>
+        </div>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <div class="subtle" style="margin-top:8px">
+          <div>Email: hello@magnus.example</div>
+          <div>WhatsApp: +234 000 000 0000</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openSheet(){ document.getElementById('sheet').style.display='block'; document.getElementById('sheet').setAttribute('aria-hidden','false'); }
+    function closeSheet(e){ 
+      if(e && e.target && e.target.id !== 'sheet' && e.target.closest('.sheet-panel')) { return; } 
+      document.getElementById('sheet').style.display='none'; 
+      document.getElementById('sheet').setAttribute('aria-hidden','true'); 
+    }
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
